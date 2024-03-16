@@ -1,0 +1,84 @@
+<!-- Samir Hassan -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Task Manager</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 60%;
+        float: left;
+        margin-left: 40px;
+      }
+      table, th, td {
+        border: 2px solid black;
+        padding: 7.5px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .form-container{
+  float: right;
+  margin-right: 40px;
+}
+
+    </style>
+  </head>
+  <h1>Task Manager</h1>
+  <form method="post" action="/processform">
+    <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task</th>
+        <th>Type</th>
+        <th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% taskList.forEach(function(task) { %>
+      <tr>
+        <td>
+          <input type="checkbox" name="tasks" value="<%= task.id %>">
+        </td>
+        <td><%= task.DescriptionT %></td>
+        <td><%= task.TypeT %></td>
+        <td><%= task.DueDateT %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</form>
+<div class="form-container">
+  <form method="post" action="/processform">
+
+  <input type="submit" name="command" value="delete">
+</form>
+
+  <br>
+  <br>
+  <form method="post" action="/processform">
+  <fieldset>
+    <legend>Add Task</legend>
+    <label for="DescriptionT">Description:</label>
+    <input type="text" name="DescriptionT" id="DescriptionT"><br>
+    <label for="DueDateT">Due Date:</label>
+    <input type="date" name="DueDateT" id="DueDateT"><br>
+    <label for="TypeT">Task Type:</label>
+    <select name="TypeT" id="TypeT">
+      <option value="Next Action">Next Action</option>
+      <option value="Waiting">Waiting</option>
+      <option value="Someday/Maybe">Someday/Maybe</option>
+      <option value="Talk">Talk</option>
+      <option value="Future">Future</option>
+    </select><br>
+    <br>
+    <input type="submit" name="command" value="add">
+  </fieldset>
+</form>
+</div>
+
+</body>
+</html>
