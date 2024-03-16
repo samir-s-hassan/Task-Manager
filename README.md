@@ -10,7 +10,7 @@ The following functionality is completed:
 - [X] User can store his tasks locally which persist until he closes the app
 - [X] User can select a task and delete it
 
-## How to run app
+## How to run
 
 1. Run "npm install" to get the package and dependencies for this project
 2. Run "node app.js" from the root of the project repository
